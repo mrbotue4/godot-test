@@ -50,7 +50,7 @@ func fall(delta):
 
 #standart bomb boost
 func bomb_boost():
-	bomb_number += 1
+	bomb_number += 2
 	if bomb_number == 2 and can_mega_boost and mega_boost_ready: #выполняем условия для мега буста
 		mega_boost()
 		
@@ -110,13 +110,14 @@ func count_score():
 func _on_UI_move_player(move_vector) -> void:
 	velocity.x = move_vector.x
 
-
+#обновляем лимиты камеры игрока
 func update_camera_limit():
 	if position.y > -1000:
 		$Camera2D.limit_bottom = 1000
 	else:
 		$Camera2D.limit_bottom -= 500
 
+#убиваем персонажа при вылете за границы экрана
 func _on_DeathZone_screen_exited() -> void:
 	queue_free()
 
