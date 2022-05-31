@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/MainSettings.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/TextureSpawner.tscn" type="PackedScene" id=4]
+
+[node name="MainLevel" type="Node2D"]
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_vertical_guides_": [  ]
+}
+
+[node name="TextureSpawner" parent="." instance=ExtResource( 4 )]
+
+[node name="Background" parent="TextureSpawner" instance=ExtResource( 3 )]
+position = Vector2( 1.69501, 0.847519 )
+script = null
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 478.555, 380.036 )
+
+[connection signal="restart_game" from="Player/UI" to="." method="_on_UI_restart_game"]
+
+[editable path="Player"]

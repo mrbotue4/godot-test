@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://backgroundEmpty.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/BombGenerator.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/ReverseArea.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Positions.tscn" type="PackedScene" id=4]
+
+[node name="Background" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.996094, 1 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="BombTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="Positions" parent="." instance=ExtResource( 4 )]
+
+[node name="ReverseArea1" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1045.8, 506.854 )
+
+[node name="ReverseArea2" parent="." instance=ExtResource( 3 )]
+position = Vector2( -28.909, 515.031 )
+
+[connection signal="timeout" from="BombTimer" to="." method="_on_BombTimer_timeout"]
+
+[editable path="Positions"]

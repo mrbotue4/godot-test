@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/2DSpawnPositions.gd" type="Script" id=1]
+
+[node name="Positions" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="RPos4" type="Position2D" parent="."]
+position = Vector2( 1005.88, 933.353 )
+
+[node name="RPos5" type="Position2D" parent="."]
+position = Vector2( 1005.88, 984.751 )
+
+[node name="RPos3" type="Position2D" parent="."]
+position = Vector2( 1005.23, 726.706 )
+
+[node name="RPos2" type="Position2D" parent="."]
+position = Vector2( 1006.5, 480.429 )
+
+[node name="RPos1" type="Position2D" parent="."]
+position = Vector2( 999.687, 208.082 )
+
+[node name="LPos4" type="Position2D" parent="."]
+position = Vector2( 22.5203, 820.328 )
+
+[node name="LPos5" type="Position2D" parent="."]
+position = Vector2( 20.9745, 888.661 )
+
+[node name="LPos3" type="Position2D" parent="."]
+position = Vector2( 17.384, 597.707 )
+
+[node name="LPos2" type="Position2D" parent="."]
+position = Vector2( 14.9235, 368.273 )
+
+[node name="LPos1" type="Position2D" parent="."]
+position = Vector2( 16.8709, 113.787 )

@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scripts/Score.gd" type="Script" id=1]
+[ext_resource path="res://xolonium-regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://KenneyAssets/kenney_simplespace/PNG/Retina/star_large.png" type="Texture" id=3]
+[ext_resource path="res://KenneyAssets/kenney_simplespace/PNG/Retina/effect_purple.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/UI.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+font_data = ExtResource( 2 )
+
+[node name="UI" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 2.1
+anchor_bottom = 1.475
+margin_left = 439.871
+margin_top = 36.4904
+margin_right = 485.871
+margin_bottom = 75.4904
+custom_fonts/font = SubResource( 1 )
+text = "00"
+align = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Control"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 248.803
+margin_top = -19.5133
+margin_right = 524.803
+margin_bottom = 19.4867
+custom_fonts/font = SubResource( 1 )
+text = "Счетчик метров"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MovementButton" type="TouchScreenButton" parent="."]
+position = Vector2( -70, 967.748 )
+normal = ExtResource( 3 )
+
+[node name="RestartButton" type="TouchScreenButton" parent="."]
+position = Vector2( -667.488, -99.6486 )
+rotation = -1.55334
+normal = ExtResource( 4 )
+
+[connection signal="released" from="RestartButton" to="." method="_on_RestartButton_released"]
