@@ -16,6 +16,7 @@ func change_gamestate(score):
 	
 	if score > 19999:
 		gamestate = "hard"
+		print ("git")
 		
 	if score > 24999:	
 		gamestate = "ultimate"
