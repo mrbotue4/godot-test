@@ -7,6 +7,8 @@ var gamestate = "begin"
 func _ready() -> void:
 	Global.Gamestate = self
 	gamestate = "begin"
+	print (CanvasLayer)
+
 
 
 #change gamestates (depends on the player score)

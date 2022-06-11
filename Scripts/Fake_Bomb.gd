@@ -25,7 +25,7 @@ func _physics_process(delta: float) -> void:
 func set_direction(fake_dir):
 	direction = fake_dir
 	
-#Player boost	
+#Player fake boost	
 func _on_body_entered(body: Node) -> void:
 	Global.Player.fake_boost()
 	queue_free()

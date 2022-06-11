@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://Scripts/Player.gd"
+}, {
+"base": "Area2D",
+"class": "boss_bomb",
+"language": "GDScript",
+"path": "res://Scripts/Boss_Bomb.gd"
 } ]
 _global_script_class_icons={
 "GitAPI": "",
-"Player": ""
+"Player": "",
+"boss_bomb": ""
 }
 
 [application]

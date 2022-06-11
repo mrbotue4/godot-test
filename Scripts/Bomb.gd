@@ -1,5 +1,6 @@
 extends Area2D
 
+
 #start_variables
 export var speed = 200
 var direction = 1

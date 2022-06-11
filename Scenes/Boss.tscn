@@ -3,10 +3,16 @@
 [ext_resource path="res://Scripts/Boss.gd" type="Script" id=1]
 [ext_resource path="res://KenneyAssets/kenney_simplespace/PNG/Retina/ship_sidesB.png" type="Texture" id=2]
 
-[node name="Node2D" type="Node2D"]
+[node name="Boss" type="Node2D"]
+position = Vector2( 300, 0 )
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
+
+[node name="RayCast2D" type="RayCast2D" parent="Sprite"]
+enabled = true
+cast_to = Vector2( 0, 1000 )
+collide_with_areas = true
 
 [node name="Tween" type="Tween" parent="."]

@@ -2,9 +2,9 @@ extends KinematicBody2D
 
 class_name Player
 
-var gravity = 300
-var boost = -800
-var speed = 300
+export var gravity = 300
+export var boost = -800
+export var speed = 300
 
 
 #Player_score
@@ -22,7 +22,6 @@ var mega_boost_ready = true
 var mega_boost_activated = false
 
 
-
 func _ready() -> void:
 	Global.Player = self
 	bomb_boost()
@@ -35,9 +34,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide(velocity, UP)
 	count_score()
 
-
-
-
+	
+	
 		
 func fall(delta):
 	if is_on_floor():
@@ -58,7 +56,6 @@ func bomb_boost():
 		
 	if velocity.y < -1500 and mega_boost_activated: #условие при мега-бусте - ограничиваем максимальную скорость
 			velocity.y = -2000
-			print (velocity)
 			
 	else: #стандартный прыжок
 		mega_boost_activated = false
@@ -71,7 +68,7 @@ func bomb_boost():
 
 func fake_boost():
 	if not mega_boost_ready: #переделать - сделать так чтобы при очень сильных ускорениях сильнее откидывало вниз
-		velocity.y = 2 * gravity
+		velocity.y = 3 * gravity
 	velocity.y += 2 * gravity
 
 	
