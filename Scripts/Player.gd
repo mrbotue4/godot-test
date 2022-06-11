@@ -13,13 +13,13 @@ var Player_score = 0
 
 #vectors
 var velocity = Vector2()
-var prev_velocity = Vector2()
 var UP = Vector2(0,-1)
 
-#additional variables
+#additional variables for super (mega) boost setting
 onready var bomb_number = 0
 var can_mega_boost = false
 var mega_boost_ready = true
+var mega_boost_activated = false
 
 
 
@@ -34,7 +34,7 @@ func _physics_process(delta: float) -> void:
 	#movement(delta)
 	move_and_slide(velocity, UP)
 	count_score()
-	print(prev_velocity)
+
 
 
 
@@ -50,22 +50,26 @@ func fall(delta):
 
 #standart bomb boost
 func bomb_boost():
-	bomb_number += 2
 	if bomb_number == 2 and can_mega_boost and mega_boost_ready: #выполняем условия для мега буста
-		mega_boost()
-		
-	if not can_mega_boost and not mega_boost_ready: #проверка на продолжение усиленных прыжков (в режиме буста)
-		velocity.y = boost + prev_velocity.y
+		if velocity.y > - 1000: #делаем не повторяющийся мега-буст при долгом полете
+			mega_boost()
+
 			
-	else: #проверка 2 на остановку усиленных прыжков
+		
+	if velocity.y < -1500 and mega_boost_activated: #условие при мега-бусте - ограничиваем максимальную скорость
+			velocity.y = -2000
+			print (velocity)
+			
+	else: #стандартный прыжок
+		mega_boost_activated = false
+		bomb_number += 1 # верно что здесь?
 		velocity.y = boost 
 		$Mega_boost_Timer.start()
 		can_mega_boost = true
 		
 		
-#fake_bomb boost
+
 func fake_boost():
-	#check for player speed 
 	if not mega_boost_ready: #переделать - сделать так чтобы при очень сильных ускорениях сильнее откидывало вниз
 		velocity.y = 2 * gravity
 	velocity.y += 2 * gravity
@@ -75,13 +79,13 @@ func fake_boost():
 #megaboost (bonus)	
 func mega_boost():
 	velocity.y = 2 * boost
-	prev_velocity.y = velocity.y
 
 	bomb_number = 0
 	can_mega_boost = false
 	mega_boost_ready = false
+	mega_boost_activated = true
 	$Mega_boost_Timer.stop()
-	yield(get_tree().create_timer(2.0), "timeout")
+	yield(get_tree().create_timer(3.0), "timeout") # добавить в таймер функцию возвращения свойств megaboost
 	mega_boost_ready = true
 	
 func _on_Mega_boost_Timer_timeout() -> void:
