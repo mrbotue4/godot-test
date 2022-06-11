@@ -18,7 +18,7 @@ func change_gamestate(score):
 	
 	if score > 19999:
 		gamestate = "hard"
-		print ("test1323")
+		print ("test1312323")
 		
 	if score > 24999:	
 		gamestate = "ultimate"
