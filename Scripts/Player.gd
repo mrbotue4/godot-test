@@ -26,7 +26,7 @@ var mega_boost_activated = false
 func _ready() -> void:
 	Global.Player = self
 	bomb_boost()
-	print ("TestGit1")
+	print ("TestGit123132")
 
 
 	
