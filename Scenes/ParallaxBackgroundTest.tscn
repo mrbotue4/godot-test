@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/ParallaxBackgroundTest.gd" type="Script" id=1]
-[ext_resource path="res://fantasy-alien-planet-landscape-with-purple-vector-26874799.jpg" type="Texture" id=2]
+[ext_resource path="res://Assets/fantasy-alien-planet-landscape-with-purple-vector-26874799.jpg" type="Texture" id=2]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 script = ExtResource( 1 )

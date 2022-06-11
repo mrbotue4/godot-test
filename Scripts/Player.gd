@@ -20,6 +20,10 @@ onready var bomb_number = 0
 var can_mega_boost = false
 var mega_boost_ready = true
 var mega_boost_activated = false
+<<<<<<< HEAD
+=======
+
+>>>>>>> 404badd0545f64a87dcb06e283e983d9c325cab4
 
 
 func _ready() -> void:
@@ -33,6 +37,12 @@ func _physics_process(delta: float) -> void:
 	#movement(delta)
 	move_and_slide(velocity, UP)
 	count_score()
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 404badd0545f64a87dcb06e283e983d9c325cab4
 
 	
 	
@@ -56,6 +66,10 @@ func bomb_boost():
 		
 	if velocity.y < -1500 and mega_boost_activated: #условие при мега-бусте - ограничиваем максимальную скорость
 			velocity.y = -2000
+<<<<<<< HEAD
+=======
+			print (velocity)
+>>>>>>> 404badd0545f64a87dcb06e283e983d9c325cab4
 			
 	else: #стандартный прыжок
 		mega_boost_activated = false
